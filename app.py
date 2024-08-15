@@ -28,11 +28,11 @@ hdrs = [
     # Link(href="css/highlighter-theme.css", rel="stylesheet"),
 ]
 
-# scripts = [
-#     Script(src="https://cdn.tailwindcss.com"),
-# ]
+scripts = [
+    Script(src="https://cdn.tailwindcss.com"),
+]
 
-app = FastHTMLWithLiveReload(hdrs=hdrs)
+app, rt = fast_app(live=True,hdrs=hdrs)
 
 
 
@@ -40,17 +40,18 @@ def benefit(title, content):
     return Div(
         H3(title, cls=f"text-black heading-3"),
         P(content, cls=f"l-body mt-6 lg:mt-6"),
-        cls="w-full p-6 bg-black rounded-2xl xl:p-12 lg:h-[22rem] lg:w-[26rem] shadow-lg",
+        cls="w-1/2 p-6 bg-red-500 rounded-2xl xl:p-12 lg:h-[22rem] lg:w-[26rem] shadow-lg",
     )
 
 
 # @timed_cache(seconds=60)
-@app.route("/")
+@rt("/")
 def get():
     return (
         Main(
             Title("Hello"),
-            benefit("A new bensfsefit", "This is asasa new benefit"),
+            benefit("A new bensfsefit", "This is asasa new benefidaadaaaaaaaat"),
+            # cls=f"w-full flex flex-col items-center justify-center min-h-screen"
             # **scripts,
         ),
     )
